@@ -1,5 +1,28 @@
 ﻿@inherits LayoutComponentBase
+@inject IImageService imageService
 
-<div class="page">
+<div class="main-layout absolute inset-0 text-white bg-cover">
     @Body
 </div>
+
+<style>
+.main-layout {
+    background-image: url("@imageUrl");
+}
+</style>
+
+@code
+{
+    private string imageUrl = "";
+    protected override Task OnInitializedAsync()
+    {
+        imageService.Subscribe(SetImage);
+        return base.OnInitializedAsync();
+    }
+
+    private void SetImage(string url)
+    {
+        imageUrl = url;
+        StateHasChanged();
+    }
+}
