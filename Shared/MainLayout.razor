@@ -1,13 +1,15 @@
 ﻿@inherits LayoutComponentBase
 @inject IImageService imageService
 
-<div class="main-layout absolute inset-0 text-white bg-cover">
+<div class="main-layout absolute inset-0 text-white bg-cover grid grid-cols-4 grid-rows-3">
     @Body
 </div>
 
 <style>
 .main-layout {
+    background-color: #2563EB;
     background-image: url("@imageUrl");
+    text-shadow: 3px 3px #111827;
 }
 </style>
 

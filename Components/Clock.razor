@@ -1,0 +1,21 @@
+﻿@using System.Threading
+@inherits TvDashboard.Dtos.Widget
+
+<div class="m-5 @Class">
+    <div class="flex flex-col items-center">
+        <div class="text-5xl">@FormattedTime</div>
+        <div class="text-3xl mt-1">@FormattedDate</div>
+    </div>
+</div>
+
+@code {
+    public override string Key => "clock";
+    private string FormattedTime => DateTime.Now.ToShortTimeString();
+    private string FormattedDate => DateTime.Now.ToShortDateString();
+
+    protected override void OnInitialized()
+    {
+        var timer = new Timer(_ => StateHasChanged(), null, 0, 60000);
+    }
+
+}
