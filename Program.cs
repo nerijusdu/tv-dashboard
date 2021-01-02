@@ -21,6 +21,7 @@ namespace TvDashboard
             builder.Services.AddSingleton<IImageService, ImageService>();
             builder.Services.AddSingleton<IWidgetService, WidgetService>();
             builder.Services.AddSingleton<IWeatherService, WeatherSerice>();
+            builder.Services.AddSingleton<ITodoService, TodoService>();
 
             await builder.Build().RunAsync();
         }

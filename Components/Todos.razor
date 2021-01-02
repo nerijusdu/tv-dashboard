@@ -1,0 +1,27 @@
+﻿@using TvDashboard.Dtos
+@inherits TvDashboard.Dtos.Widget
+@inject ITodoService todoService
+
+<div class="m-5 text-2xl">
+    <ul>
+        @foreach (var task in Tasks)
+        {
+            <li class="flex">
+                <div class="mr-2">
+                    <Icon Name="@($"check-{task.IsCompleted}")" />
+                </div>
+                <span class="@(task.IsCompleted ? "line-through" : "")">@task.Title</span>
+            </li>
+        }
+    </ul>
+</div>
+
+@code {
+    public override string Key => "todos";
+    private List<TodoDto> Tasks { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Tasks = await todoService.GetAllTasks();
+    }
+}
