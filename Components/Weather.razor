@@ -1,0 +1,24 @@
+﻿@using TvDashboard.Dtos.Weather
+@inherits TvDashboard.Dtos.Widget
+@inject IWeatherService weatherService
+
+<div class="m-5 @Class">
+    @if (weather != null)
+    {
+        <div class="flex items-center">
+            <Icon Name="@(weather.Weather.First().Icon)"/>
+            <div class="text-4xl">@weather.Main.Temp.ToString("F0") °C</div>
+        </div>
+    }
+</div>
+
+@code {
+    public override string Key => "weather";
+    private WeatherResponseDto weather;
+
+    protected override async Task OnInitializedAsync()
+    {
+        weather = await weatherService.GetCurrentWeather();
+    }
+
+}

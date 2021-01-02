@@ -21,7 +21,8 @@ namespace TvDashboard.Services
         
         private static readonly List<Type> WidgetTypes = new()
         {
-            typeof(Clock)
+            typeof(Clock),
+            typeof(Weather),
         };
 
         public WidgetService(IConfiguration configuration)

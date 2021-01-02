@@ -1,0 +1,14 @@
+﻿@inject HttpClient httpClient
+
+@svgString
+
+@code {
+    [Parameter] public string Name { get; set; }
+    private MarkupString svgString = new ();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        svgString = new (await httpClient.GetStringAsync($"icons/{Name}.svg"));
+    }
+
+}

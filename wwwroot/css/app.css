@@ -1,3 +1,8 @@
 ﻿html, body {
     font-family: 'Roboto', sans-serif;
 }
+
+svg {
+    stroke: currentColor;
+    fill: currentColor;
+}
