@@ -18,7 +18,7 @@
                 <li class="flex flex-row justify-between items-center">
                     <div class="flex flex-grow w-80">
                         <div class="mr-1 hover:text-green-600 cursor-pointer" @onclick="@(() => ToggleTodo(task.Id))">
-                            <Icon Name="@($"check-{task.IsCompleted}")" />
+                            <Icon Name="@($"check-{task.IsCompleted.ToString().ToLower()}")" />
                         </div>
                         <div class="@(task.IsCompleted ? "line-through" : "")">@task.Title</div>
                     </div>

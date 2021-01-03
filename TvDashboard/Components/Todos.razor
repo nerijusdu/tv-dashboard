@@ -8,7 +8,7 @@
         {
             <li class="flex">
                 <div class="mr-2">
-                    <Icon Name="@($"check-{task.IsCompleted}")" />
+                    <Icon Name="@($"check-{task.IsCompleted.ToString().ToLower()}")" />
                 </div>
                 <span class="@(task.IsCompleted ? "line-through" : "")">@task.Title</span>
             </li>

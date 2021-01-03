@@ -40,16 +40,13 @@ namespace TvDashboard.Services
         {
             {1, "flex justify-start items-start"},
             {2, "flex justify-center items-start"},
-            {3, "flex justify-center items-start"},
-            {4, "flex justify-end items-start"},
-            {5, "flex justify-start items-center"},
-            {6, "flex justify-center items-center"},
-            {7, "flex justify-center items-center"},
-            {8, "flex justify-end items-center"},
-            {9, "flex justify-start items-end"},
-            {10, "flex justify-center items-end"},
-            {11, "flex justify-center items-end"},
-            {12, "flex justify-end items-end"}
+            {3, "flex justify-end items-start"},
+            {4, "flex justify-start items-center"},
+            {5, "flex justify-center items-center"},
+            {6, "flex justify-end items-center"},
+            {7, "flex justify-start items-end"},
+            {8, "flex justify-center items-end"},
+            {9, "flex justify-end items-end"}
         };
 
         public Dictionary<int, Widget> GetWidgets()

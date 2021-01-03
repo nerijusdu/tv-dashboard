@@ -8,7 +8,7 @@ using TvDashboard.Backend.Services;
 namespace TvDashboard.Backend.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class TodoController : ControllerBase
     {
         private readonly CrudService<Todo> todoService;

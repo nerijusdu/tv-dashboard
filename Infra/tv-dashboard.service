@@ -1,0 +1,21 @@
+[Unit]
+Description=Home dashboard for your TV
+
+[Service]
+# systemd will run this executable to start the service
+ExecStart=/home/pi/web/TvDashboard/TvDashboard.Backend
+SyslogIdentifier=TvDashboard
+
+# Use your username to keep things simple.
+# If you pick a different user, make sure dotnet and all permissions are set correctly to run the app
+# To update permissions, use 'chown yourusername -R /home/pi/web/TvDashboard/TvDashboard.Backend' to take ownership of the folder and files,
+#       Use 'chmod +x /home/pi/web/TvDashboard/TvDashboard.Backend' to allow execution of the executable file
+User=pi
+
+# ensure the service restarts after crashing
+Restart=always
+# amount of time to wait before restarting the service
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
