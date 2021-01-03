@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvDashboard", "TvDashboard.csproj", "{80070195-F927-4756-99C4-1D6A5FBE82E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvDashboard", "TvDashboard\TvDashboard.csproj", "{80070195-F927-4756-99C4-1D6A5FBE82E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TvDashboard.Backend", "TvDashboard.Backend\TvDashboard.Backend.csproj", "{00A696F1-60ED-44A9-90A0-E0EB193B43D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +14,9 @@ Global
 		{80070195-F927-4756-99C4-1D6A5FBE82E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80070195-F927-4756-99C4-1D6A5FBE82E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80070195-F927-4756-99C4-1D6A5FBE82E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00A696F1-60ED-44A9-90A0-E0EB193B43D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A696F1-60ED-44A9-90A0-E0EB193B43D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A696F1-60ED-44A9-90A0-E0EB193B43D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A696F1-60ED-44A9-90A0-E0EB193B43D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,82 @@
+﻿@page "/todos"
+@using TvDashboard.Dtos
+@inject ITodoService todoService
+
+<div class="flex flex-col items-center container m-5 text-2xl">
+    <div>
+        <input class="text-black rounded text-lg p-1 border-2 focus:border-green-600" 
+               @bind="NewTaskName" 
+               @onkeyup="@CheckForSubmit" />
+        <button class="bg-green-600 hover:bg-green-800 text-lg p-2 rounded border border-black mt-2" 
+                @onclick="CreateTodo">
+            Create item
+        </button>
+        
+        <ul class="mt-5 flex flex-col items-start">
+            @foreach (var task in Tasks)
+            {
+                <li class="flex flex-row justify-between items-center">
+                    <div class="flex flex-grow w-80">
+                        <div class="mr-1 hover:text-green-600 cursor-pointer" @onclick="@(() => ToggleTodo(task.Id))">
+                            <Icon Name="@($"check-{task.IsCompleted}")" />
+                        </div>
+                        <div class="@(task.IsCompleted ? "line-through" : "")">@task.Title</div>
+                    </div>
+                    <div class="hover:text-red-600 cursor-pointer" @onclick="@(() => DeleteTodo(task.Id))">
+                        <Icon Name="delete"/>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+@code {
+    private List<TodoDto> Tasks { get; set; } = new();
+    private string NewTaskName { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetTodos();
+    }
+
+    private async Task GetTodos()
+    {
+        Tasks = await todoService.GetAllTasks();
+    }
+
+    private async Task DeleteTodo(Guid id)
+    {
+        await todoService.DeleteTodo(id);
+        await GetTodos();
+    }
+
+    private async Task ToggleTodo(Guid id)
+    {
+        await todoService.CheckTodo(id);
+        await GetTodos();
+    }
+
+    private async Task CreateTodo()
+    {
+        await todoService.AddTodo(new()
+        {
+            Id = Guid.NewGuid(),
+            Title = NewTaskName,
+            CreatedOn = DateTime.Now,
+            IsCompleted = false
+        });
+
+        NewTaskName = "";
+        
+        await GetTodos();
+    }
+
+    private async Task CheckForSubmit(KeyboardEventArgs e)
+    {
+        if (e.Code == "Enter" || e.Code == "NumpadEnter")
+        {
+            await CreateTodo();
+        }
+    }
+}
